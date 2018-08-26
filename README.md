@@ -1,6 +1,6 @@
-# Front-End for https://www.dragonsofmugloar.com/ API
+## Front-End for https://www.dragonsofmugloar.com/ API
 
-## Project setup
+### Project setup
 ```
 yarn install
 ```
