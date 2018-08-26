@@ -19,7 +19,7 @@ const actions = {
         commit('SET_SHOP', shop)
       );
     } catch (error) {
-      console.error(error);
+      dispatch('alertError', error)
     }
   },
   buyShopItem: async ({ dispatch }, { game, item }) => {
@@ -32,7 +32,7 @@ const actions = {
         dispatch('fetchNewGameValues', options)
       });
     } catch (error) {
-      console.error(error);
+      dispatch('alertError', error)
     }
   }
 }

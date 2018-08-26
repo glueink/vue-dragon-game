@@ -17,15 +17,17 @@ const mutations = {
 
 const actions = {  
   initGame: async ({ commit, dispatch, getters }) => {
-    await axios.post('https://www.dragonsofmugloar.com/api/v2/game/start')
-    .then((response) => {
-      var data = response.data;
-      commit('SET_GAME', data);
-      dispatch('initMessages', getters.game)
-      dispatch('initShop', getters.game)
-    }, (error) => {
-      console.log(error);
-    });
+    try {
+      await axios.post('https://www.dragonsofmugloar.com/api/v2/game/start')
+      .then((response) => {
+        var data = response.data;
+        commit('SET_GAME', data);
+        dispatch('initMessages', getters.game)
+        dispatch('initShop', getters.game)
+      });
+    } catch (error) {
+      dispatch('alertError', error)
+    }
   },
   acceptQuest: async ({ dispatch, getters }, message) => {
     let game = getters.game
@@ -46,15 +48,13 @@ const actions = {
   fetchNewGameValues: async ({ commit, dispatch }, values) => {
     commit('NEW_GAME_OPTIONS', values)
     if (values.hasOwnProperty('success')) {
-      // dispatch('notifySuccess', values)
-      console.log(values.success)
+      dispatch('alertSuccess', values)
     }
     if (values.hasOwnProperty('shoppingSuccess')) {
-      // dispatch('notifyShoppingSuccess', values)
-      console.log(values.shoppingSuccess)
+      dispatch('alertShoppingSuccess', values)
     }
     if(values.lives == 0) {
-      alert('You Lost, youre score is ' + values.score);
+      dispatch('alertGameEnd', values)
       dispatch('initGame');
     }
   }

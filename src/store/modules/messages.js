@@ -19,7 +19,7 @@ const actions = {
         commit('SET_MESSAGES', messages)
       );
     } catch (error) {
-      console.error(error);
+      dispatch('alertError', error)
     }
   },
   solveMessage: async ({ dispatch }, { game, message }) => {
@@ -32,7 +32,7 @@ const actions = {
         dispatch('fetchNewGameValues', options)
       });
     } catch (error) {
-      console.error(error);
+      dispatch('alertError', error)
     }
   }
 }

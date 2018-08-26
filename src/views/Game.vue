@@ -15,24 +15,26 @@
         </div>
       </div>
     </div>
+    <alerts :alerts="alerts"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Header from '@/components/Header.vue'
 import Messages from '@/components/Messages.vue'
 import Shop from '@/components/Shop.vue'
+import Alerts from '@/components/Alerts.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
     appHeader: Header,
     messages: Messages,
-    shop: Shop
+    shop: Shop,
+    alerts: Alerts
   },
   computed: {
-    ...mapGetters([ 'game', 'messages', 'shop' ])
+    ...mapGetters([ 'game', 'messages', 'shop', 'alerts' ]),
   },
   created() {
     this.$store.dispatch('initGame')

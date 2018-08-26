@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" v-show="!message.encrypted">
     <div class="card-body">
       <h5 class="card-title">{{ message.probability }} <span class="badge badge-warning"> {{ message.reward }}</span></h5>
       <p class="card-text text-left mb-1">{{ message.message }}</p>
