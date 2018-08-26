@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="col-lg-4 mb-3">
-          <h1>Shop</h1>   
+          <h1>Shop</h1>
           <shop :shop="shop"/>
         </div>
       </div>
@@ -34,9 +34,9 @@ export default {
     alerts: Alerts
   },
   computed: {
-    ...mapGetters([ 'game', 'messages', 'shop', 'alerts' ]),
+    ...mapGetters([ 'game', 'messages', 'shop', 'alerts' ])
   },
-  created() {
+  created () {
     this.$store.dispatch('initGame')
   }
 }
@@ -46,7 +46,7 @@ export default {
 @media (max-width: 991.98px) {
   .card-columns { column-count: 3; }
 }
-@media (max-width: 1199.98px) { 
+@media (max-width: 1199.98px) {
   .card-columns { column-count: 2; }
 }
 @media (max-width: 575.98px) {

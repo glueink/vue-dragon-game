@@ -7,8 +7,8 @@
 <script>
 import Message from '@/components/Message.vue'
 export default {
-	props: ['messages'],
-	components: { Message }
+  props: ['messages'],
+  components: { Message }
 }
 </script>
 

@@ -15,7 +15,7 @@
 export default {
   props: [ 'message' ],
   methods: {
-    acceptQuest(item) {
+    acceptQuest (item) {
       this.$store.dispatch('acceptQuest', item)
     }
   }

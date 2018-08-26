@@ -19,12 +19,12 @@
 <script>
 import mapActions from 'vuex'
 export default {
-	props: ['game'],
-	methods: {
-		newGame() {
-			this.$store.dispatch('initGame')
-		}
-	}
+  props: ['game'],
+  methods: {
+    newGame () {
+      this.$store.dispatch('initGame')
+    }
+  }
 }
 </script>
 

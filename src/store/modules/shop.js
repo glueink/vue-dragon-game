@@ -5,32 +5,32 @@ const state = {
 }
 
 const mutations = {
-  'SET_SHOP' ( state, shop ) {
+  'SET_SHOP' (state, shop) {
     state.shop = shop
   }
 }
 
-const actions = {  
-  initShop: async ({ commit }, game) => {
+const actions = {
+  initShop: async ({ commit, dispatch }, game) => {
     try {
-      axios.get('https://www.dragonsofmugloar.com/api/v2/'+ game.gameId +'/shop')
-      .then(response => response.data)
-      .then(shop => 
-        commit('SET_SHOP', shop)
-      );
+      axios.get('https://www.dragonsofmugloar.com/api/v2/' + game.gameId + '/shop')
+        .then(response => response.data)
+        .then(shop =>
+          commit('SET_SHOP', shop)
+        )
     } catch (error) {
       dispatch('alertError', error)
     }
   },
   buyShopItem: async ({ dispatch }, { game, item }) => {
     try {
-      await axios.post('https://www.dragonsofmugloar.com/api/v2/'+ game.gameId +'/shop/buy/' + item.id)
-      .then(response => response.data)
-      .then(options => {
-        dispatch('initShop', game)
-        dispatch('initMessages', game)
-        dispatch('fetchNewGameValues', options)
-      });
+      await axios.post('https://www.dragonsofmugloar.com/api/v2/' + game.gameId + '/shop/buy/' + item.id)
+        .then(response => response.data)
+        .then(options => {
+          dispatch('initShop', game)
+          dispatch('initMessages', game)
+          dispatch('fetchNewGameValues', options)
+        })
     } catch (error) {
       dispatch('alertError', error)
     }

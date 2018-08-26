@@ -5,26 +5,26 @@ const state = {
 }
 
 const mutations = {
-  'SET_GAME' ( state, game ) {
+  'SET_GAME' (state, game) {
     state.game = game
   },
-  'NEW_GAME_OPTIONS' ( state, game ) {
+  'NEW_GAME_OPTIONS' (state, game) {
     delete state.game.success
     delete state.game.shoppingSuccess
     state.game = { ...state.game, ...game }
   }
 }
 
-const actions = {  
+const actions = {
   initGame: async ({ commit, dispatch, getters }) => {
     try {
       await axios.post('https://www.dragonsofmugloar.com/api/v2/game/start')
-      .then((response) => {
-        var data = response.data;
-        commit('SET_GAME', data);
-        dispatch('initMessages', getters.game)
-        dispatch('initShop', getters.game)
-      });
+        .then((response) => {
+          var data = response.data
+          commit('SET_GAME', data)
+          dispatch('initMessages', getters.game)
+          dispatch('initShop', getters.game)
+        })
     } catch (error) {
       dispatch('alertError', error)
     }
@@ -53,9 +53,9 @@ const actions = {
     if (values.hasOwnProperty('shoppingSuccess')) {
       dispatch('alertShoppingSuccess', values)
     }
-    if(values.lives == 0) {
+    if (values.lives === 0) {
       dispatch('alertGameEnd', values)
-      dispatch('initGame');
+      dispatch('initGame')
     }
   }
 }

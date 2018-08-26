@@ -26,7 +26,7 @@ footer {
   margin: 30px 20px;
 }
 .copyright {
-  color: #028090; 
+  color: #028090;
   &:hover { color: #05668D; text-decoration: none;}
 }
 </style>
