@@ -43,13 +43,6 @@ export default {
 </script>
 
 <style lang="scss">
-.alerts-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 20px;
-}
-
 @media (max-width: 991.98px) {
   .card-columns { column-count: 3; }
 }

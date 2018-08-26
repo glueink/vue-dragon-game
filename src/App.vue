@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
+    <footer><a href="mailto:jegor.salajev@gmail.com" class="copyright">&copy; Jegor Šalajev</a></footer>
   </div>
 </template>
 
@@ -19,5 +20,13 @@
 }
 html, body {
   height: 100vh;
+}
+footer {
+  text-align: center;
+  margin: 30px 20px;
+}
+.copyright {
+  color: #028090; 
+  &:hover { color: #05668D; text-decoration: none;}
 }
 </style>
