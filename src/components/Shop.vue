@@ -1,6 +1,6 @@
 <template>
 	<ul class="list-group">
-		<a href="#" class="list-group-item" v-for="item in shopItems" :key="item.Id">
+		<a href="#" class="list-group-item" v-for="item in shop" :key="item.Id" @click="buyShopItem(item)">
 			{{ item.name }} 
 			<span class="badge badge-warning">{{ item.cost }}</span>
 		</a>
@@ -8,30 +8,13 @@
 </template>
 
 <script>
-import Message from '@/components/Message.vue'
 export default {
-	components: { Message },
-	data() {
-		return {
-			shopItems: [
-				{
-					"id": "hpot",
-					"name": "Healing potion",
-					"cost": 50
-				},
-				{
-					"id": "cs",
-					"name": "Claw Sharpening",
-					"cost": 100
-				},
-				{
-					"id": "gas",
-					"name": "Gasoline",
-					"cost": 100
-				}
-			]
-		}
-	}
+	props: [ 'shop' ],
+	methods: {
+    buyShopItem(item) {
+			this.$store.dispatch('purchaseItem', item)
+    }
+  }
 }
 </script>
 

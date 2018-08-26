@@ -5,7 +5,7 @@
       <p class="card-text text-left mb-1">{{ message.message }}</p>
       <p class="card-text d-flex justify-content-between align-items-center">
         <small class="text-muted">Expires In {{ message.expiresIn }}</small>
-        <button type="button" class="btn btn-primary btn-sm">Do This</button>
+        <button type="button" class="btn btn-primary btn-sm" @click="acceptQuest(message)">Accept Quest</button>
       </p>
     </div>
   </div>
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  props: [ 'message' ]
+  props: [ 'message' ],
+  methods: {
+    acceptQuest(item) {
+      this.$store.dispatch('acceptQuest', item)
+    }
+  }
 }
 </script>
 
