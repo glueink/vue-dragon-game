@@ -24,7 +24,7 @@ import Header from '@/components/Header.vue'
 import Messages from '@/components/Messages.vue'
 import Shop from '@/components/Shop.vue'
 import Alerts from '@/components/Alerts.vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
