@@ -1,4 +1,4 @@
-# vue-dragon-game
+# Front-End for https://www.dragonsofmugloar.com/ API
 
 ## Project setup
 ```
@@ -13,9 +13,4 @@ yarn run serve
 ### Compiles and minifies for production
 ```
 yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
 ```
