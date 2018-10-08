@@ -1,7 +1,5 @@
 ## Front-End for https://www.dragonsofmugloar.com/ API
 
-## Game Online https://skyoff.github.io/vue-dragon-game/
-
 ### Project setup
 ```
 yarn install
